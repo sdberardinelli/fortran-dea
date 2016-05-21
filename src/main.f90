@@ -1,5 +1,5 @@
 !**********************************************************
-program GLPK_main
+program Main
 !**********************************************************
 implicit none
 !**********************************************************
@@ -55,8 +55,9 @@ close(10)
 
 write(*,*) 'Finished Reading LP Data'
 
-call LP_LPSOLVE(nr,nc,nDMU,nY,nX,objtype,objvals,rest,rhs,A,obj,soln,runtime,runtimes,EFFscores)
-#call LP_GLPK(nr,nc,nDMU,nY,nX,objtype,objvals,rest,rhs,A,obj,soln,runtime,runtimes,EFFscores)
+!call LP_LPSOLVE(nr,nc,nDMU,nY,nX,objtype,objvals,rest,rhs,A,obj,soln,runtime,runtimes,EFFscores)
+!call LP_GLPK(nr,nc,nDMU,nY,nX,objtype,objvals,rest,rhs,A,obj,soln,runtime,runtimes,EFFscores)
+call LP_CLP(nr,nc,nDMU,nY,nX,objtype,objvals,rest,rhs,A,obj,soln,runtime,runtimes,EFFscores)
 
 !write(*,*) 'obj = ',obj
 !if(nc.le.20) write(*,*) 'solution = ',(soln(k),k=1,nc)
@@ -73,5 +74,5 @@ end do
 close(10)
 
 !**********************************************************
-end program GLPK_main
+end program Main
 !**********************************************************
